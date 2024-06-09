@@ -196,7 +196,8 @@ func (m *mkcert) fileNames(hosts []string) (certFile, keyFile, p12File string) {
 		p12File = m.p12File
 	}
 
-	return
+	base := "certs"
+	return filepath.Join(base, certFile), filepath.Join(base, keyFile), filepath.Join(base, p12File)
 }
 
 func randomSerialNumber() *big.Int {
